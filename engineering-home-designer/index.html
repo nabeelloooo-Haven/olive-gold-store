@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>صمّم بيتك | مكتب هندسي</title>
+  <meta name="description" content="صمّم تصور بيتك خلال دقائق، واحصل على 3 اقتراحات مبدئية حسب مساحة الأرض واحتياجاتك." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav container">
+      <div class="brand">
+        <div class="logo-mark">هـ</div>
+        <div>
+          <strong>المكتب الهندسي</strong>
+          <small>تصميم معماري مبدئي ذكي</small>
+        </div>
+      </div>
+      <a class="nav-cta" href="tel:0542277575">اتصل بنا</a>
+    </nav>
+
+    <div class="hero-content container">
+      <div class="hero-copy">
+        <span class="eyebrow">ابدأ من أرضك… وانتهِ بتصور واضح</span>
+        <h1>صمّم بيتك كما تحب<br><span>بخطوات بسيطة</span></h1>
+        <p>أدخل مساحة الأرض، عدد الشقق والغرف والخدمات المطلوبة، وسنحسب لك مساحة البناء المبدئية ونقترح 3 توزيعات مناسبة خلال ثوانٍ.</p>
+        <button class="primary-btn" onclick="document.getElementById('designer').scrollIntoView({behavior:'smooth'})">ابدأ التصميم الآن</button>
+        <div class="hero-points">
+          <span>✓ حساب 65% من الأرض</span>
+          <span>✓ 3 اقتراحات فورية</span>
+          <span>✓ تواصل مباشر مع المهندس</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-plan">
+          <div class="room r1">صالة</div>
+          <div class="room r2">غرفة</div>
+          <div class="room r3">غرفة</div>
+          <div class="room r4">مطبخ</div>
+          <div class="room r5">حمام</div>
+          <div class="room r6">مدخل</div>
+        </div>
+        <div class="hero-card-footer">
+          <strong>تصور مبدئي ذكي</strong>
+          <span>حسب احتياج كل عميل</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="designer" class="designer-section container">
+      <div class="section-title">
+        <span>مخططك يبدأ من هنا</span>
+        <h2>أخبرنا ماذا تريد في بيتك</h2>
+        <p>أجب عن الأسئلة التالية وسننشئ لك ثلاثة خيارات مبدئية للتوزيع.</p>
+      </div>
+
+      <div class="designer-grid">
+        <aside class="steps-card">
+          <div class="step active" data-step="1"><b>1</b><span>الأرض</span></div>
+          <div class="step" data-step="2"><b>2</b><span>الشقق</span></div>
+          <div class="step" data-step="3"><b>3</b><span>الغرف</span></div>
+          <div class="step" data-step="4"><b>4</b><span>الخدمات</span></div>
+          <div class="step" data-step="5"><b>5</b><span>الاقتراحات</span></div>
+        </aside>
+
+        <section class="form-card">
+          <div class="progress"><span id="progressBar"></span></div>
+
+          <form id="designForm">
+            <div class="form-step active" data-panel="1">
+              <span class="question-count">الخطوة 1 من 4</span>
+              <h3>كم مساحة الأرض؟</h3>
+              <p>أدخل المساحة الإجمالية بالمتر المربع.</p>
+              <div class="input-wrap big-input">
+                <input id="landArea" type="number" min="100" max="10000" step="1" placeholder="مثال: 500" required>
+                <span>م²</span>
+              </div>
+              <div class="info-box">سيتم احتساب مساحة بناء مبدئية تعادل <strong>65%</strong> من مساحة الأرض.</div>
+            </div>
+
+            <div class="form-step" data-panel="2">
+              <span class="question-count">الخطوة 2 من 4</span>
+              <h3>كم شقة تريد في الدور الواحد؟</h3>
+              <p>سيتم تقسيم المساحة القابلة للبناء بين الشقق مع احتساب مساحة تقريبية للخدمات المشتركة.</p>
+              <div class="choice-grid" id="apartmentsChoices">
+                <label><input type="radio" name="apartments" value="1" checked><span>شقة واحدة</span></label>
+                <label><input type="radio" name="apartments" value="2"><span>شقتان</span></label>
+                <label><input type="radio" name="apartments" value="3"><span>3 شقق</span></label>
+                <label><input type="radio" name="apartments" value="4"><span>4 شقق</span></label>
+              </div>
+            </div>
+
+            <div class="form-step" data-panel="3">
+              <span class="question-count">الخطوة 3 من 4</span>
+              <h3>ما مكونات كل شقة؟</h3>
+              <p>حدد العدد المطلوب لكل عنصر.</p>
+              <div class="counter-grid">
+                <div class="counter-item"><span>غرف النوم</span><div class="counter"><button type="button" data-action="minus">−</button><input id="bedrooms" value="3" readonly><button type="button" data-action="plus">+</button></div></div>
+                <div class="counter-item"><span>الحمامات</span><div class="counter"><button type="button" data-action="minus">−</button><input id="bathrooms" value="2" readonly><button type="button" data-action="plus">+</button></div></div>
+                <div class="counter-item"><span>المطابخ</span><div class="counter"><button type="button" data-action="minus">−</button><input id="kitchens" value="1" readonly><button type="button" data-action="plus">+</button></div></div>
+                <div class="counter-item"><span>الصالات</span><div class="counter"><button type="button" data-action="minus">−</button><input id="livingRooms" value="1" readonly><button type="button" data-action="plus">+</button></div></div>
+              </div>
+            </div>
+
+            <div class="form-step" data-panel="4">
+              <span class="question-count">الخطوة 4 من 4</span>
+              <h3>هل تريد غرفة عاملة؟</h3>
+              <p>نأخذها بعين الاعتبار عند توزيع المساحة.</p>
+              <div class="choice-grid two">
+                <label><input type="radio" name="maidRoom" value="yes"><span>نعم، أريد غرفة عاملة</span></label>
+                <label><input type="radio" name="maidRoom" value="no" checked><span>لا، غير مطلوبة</span></label>
+              </div>
+              <div class="optional-note">
+                <label for="notes">ملاحظات إضافية <small>(اختياري)</small></label>
+                <textarea id="notes" rows="3" placeholder="مثال: مجلس رجال، غرفة ضيوف، مدخل مستقل، مصعد..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" id="prevBtn" class="secondary-btn" disabled>السابق</button>
+              <button type="button" id="nextBtn" class="primary-btn">التالي</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <section id="results" class="results-section hidden">
+      <div class="container">
+        <div class="section-title light">
+          <span>النتيجة المبدئية</span>
+          <h2>3 اقتراحات تناسب طلبك</h2>
+          <p>هذه تصورات أولية تساعدك على اختيار الاتجاه المناسب قبل البدء بالتصميم الهندسي التفصيلي.</p>
+        </div>
+
+        <div class="summary-bar" id="summaryBar"></div>
+        <div class="plans-grid" id="plansGrid"></div>
+
+        <div class="consult-card">
+          <div>
+            <span>الخطوة التالية</span>
+            <h3>خلّينا نحول الفكرة إلى مخطط هندسي حقيقي</h3>
+            <p>تواصل معنا الآن وأرسل نتيجة التصميم، وسيتم مراجعتها معك وتطويرها حسب أبعاد الأرض والارتدادات والأنظمة المعتمدة.</p>
+          </div>
+          <div class="consult-actions">
+            <a id="whatsappBtn" class="whatsapp-btn" target="_blank" rel="noopener">واتساب</a>
+            <a class="call-btn" href="tel:0542277575">اتصال 0542277575</a>
+          </div>
+        </div>
+        <p class="disclaimer">تنبيه: النتائج تقديرية وغير معتمدة للتنفيذ أو الترخيص، ولا تغني عن دراسة المخطط التنظيمي وأبعاد الأرض والارتدادات والكود والاشتراطات البلدية والإنشائية.</p>
+      </div>
+    </section>
+
+    <section class="how-it-works container">
+      <div class="section-title">
+        <span>كيف نعمل؟</span>
+        <h2>من الفكرة إلى المخطط</h2>
+      </div>
+      <div class="process-grid">
+        <article><b>01</b><h3>حدد احتياجك</h3><p>مساحة الأرض وعدد الشقق والغرف والخدمات المطلوبة.</p></article>
+        <article><b>02</b><h3>اختر الاقتراح</h3><p>نقدم لك 3 تصورات مبدئية مختلفة بحسب أولوية الراحة أو التوازن أو الاستغلال.</p></article>
+        <article><b>03</b><h3>تواصل مع المهندس</h3><p>نراجع أبعاد الأرض والاشتراطات وننتقل إلى التصميم الهندسي التفصيلي.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><strong>المكتب الهندسي</strong><p>تصميم معماري مبدئي ذكي وسهل.</p></div>
+      <div><span>للتواصل</span><a href="tel:0542277575">0542277575</a></div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
